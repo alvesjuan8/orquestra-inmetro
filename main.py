@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
-mail = 'ads.juan2017@gmail.com'
+mail = 'inmetro.orquestra@gmail.com'
 pwd = '30452560'
 
 mail_settings = {

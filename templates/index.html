@@ -1,9 +1,172 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello World</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in - Inmetro</title>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Our Custom CSS -->
+    <link href="css/Barralateral.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="js/Solid.js"></script>
+    <script src="js/fontawesome.js"></script>
+
+
+    <style>
+        .modal-backdrop {
+            z-index: 100 !important;
+        }
+
+        #modal-content {
+            width: 145%;
+            height: 300px;
+        }
+
+        #modal-body {
+            height: 100px
+        }
+
+        body {
+            font-size: 10px;
+            color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p {
+            font-size: 10pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        label {
+            font-size: 10pt;
+            color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .tr {
+            background-color: lightgray;
+        }
+
+        .pagination-container > ul {
+            display: flex;
+        }
+    </style>
+
+
+</head>
+<body>
+            
+
+<link href="css/Orquestra.css" rel="stylesheet">
+<script>
+  
+</script>
+
+<noscript><div class="alert alert-danger no-border no-margin" id="NoJavascriptWarning" visible="false">Seu navegador está com Javascript desabilitado. Esse recurso é essencial para o correto funcionamento do sistema.</div></noscript>
+
+<form action="http://127.0.0.1:5000" id="form1" method="post">    <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value>
+    <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value>
+    <div class="header">
+        <div class="logo logo-centered">
+            <a href="/" id="LogoImg" style="width:100%; background-image: url(&#x27;images/inmetro_big.png&#x27;); background-image: -webkit-image-set(url(&#x27;images/inmetro_big.png&#x27;) 1x, url(&#x27;&#x27;) 1.5x, url(&#x27;&#x27;) 2x);"></a>
+        </div>
+        <div class="top-bar"></div>
+        <div class="middle-bar middle-bar-spaced-bottom">
+            <center><img src="images/inmetro_big_1.png"></center>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-12 col-md-6">
+
+                <div class="card">
+                    <h5 class="card-header bold">Acesso para o INMETRO</h5>
+                    <div class="card-body">
+                        <div class="alert alert-danger" role="alert" style="display:none">
+                            <span></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="bold">Usuário</label>
+                            <input autocomplete="on" class="field" data-val="true" data-val-email="The Login field is not a valid e-mail address." data-val-required="The Login field is required." id="TxtLogin" maxlength="64" name="Login" required="required" tabindex="1" type="text" value>
+                            <span id="Req1" style="display:none;"></span>
+                            <span id="TxtFixedLogin"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="pull-right">
+                                <input type="submit" formaction="" name="EsqueciMinhaSenha" value="Esqueci minha senha" id="EsqueciSenha" tabindex="4" class="btn btn-link smallbtn">
+                            </div>
+                            <label for="TxtLogin" id="LblPassword" class="bold">Senha</label>
+                            <input autocomplete="on" class="field" data-val="true" data-val-required="The Senha field is required." id="TxtPassword" maxlength="64" name="Password" tabindex="2" type="password" value>
+                            <span id="Req2" style="display:none;"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="spaced">
+                                <div class="pull-right">
+                                    <input type="submit" name="ctl00$body$wLoginUc$BtnLogin" value="Entrar" onclick="" id="BtnLogin" tabindex="4" class="btn btn-primary" style="background: #1351b4; border: 1px solid #1351b4;">
+                                </div>
+                                <label class="inline"><input name="ctl00$body$wLoginUc$ChkSaveInfo" type="checkbox" id="ChkSaveInfo" tabindex="3"> Salvar informações</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <center>
+                                <i>Acesso para servidores, colaboradores, avaliadores e especialistas do Inmetro.</i>
+                            </center>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div>
+                    <div class="card">
+                        <h5 class="card-header bold">Acesso para Empresas</h5>
+                        <div class="card-body spaced">
+                            <div class="clear"><center><img src="images/tela_gov_br.png" style="width:185px"></center></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <center>
+                                    <button class="br-button is-primary" onclick="location.href='/inmetrobcweb/Account/ExternalLogin'" type="button">Entrar com <span>gov.br</span></button>
+                                </center>
+                                <br>
+                                <center>
+                                    <a href="https://www.gov.br/inmetro/pt-br/centrais-de-conteudo/sistemas/orquestra" target="_blank">Veja como entrar no Orquestra com <strong>gov.br</strong></a>
+                                </center>
+                            </div>
+                            <div class="form-group">
+                                <center>
+                                    <i>Acesso para responsáveis legais, representantes legais e membros de empresas.</i>
+                                </center>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.js"></script>
+    <!-- Popper.JS -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/bootstrap-multiselect.css" rel="stylesheet">
+    <script src="js/bootstrap-multiselect.js"></script>
+
+
+</body></html>

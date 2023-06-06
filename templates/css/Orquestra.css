@@ -1,0 +1,132 @@
+﻿.spaced {
+    margin-top: 15px;
+}
+
+.middle-bar {
+    border-top: 1px solid #1e73a6;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0D5B93',endColorstr='#0C4472');
+    background-image: -ms-linear-gradient(top,#0d5b93 0%,#0c4472 100%);
+    background-image: -moz-linear-gradient(top,#0d5b93 0%,#0c4472 100%);
+    background-image: -o-linear-gradient(top,#0d5b93 0%,#0c4472 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#0d5b93),color-stop(1,#0c4472));
+    background-image: -webkit-linear-gradient(top,#0d5b93 0%,#0c4472 100%);
+    background-image: linear-gradient(to bottom,#0d5b93 0%,#0c4472 100%);
+    border-bottom: 2px solid #073159;
+    height: 140px;
+    -moz-box-shadow: 0 2px 5px 0 #dcdcdc;
+    -webkit-box-shadow: 0 2px 5px 0 #dcdcdc;
+    box-shadow: 0 2px 5px 0 #dcdcdc;
+}
+
+.middle-bar-spaced-bottom {
+    margin-bottom: 10px;
+}
+
+body {
+    font-size: 10pt;
+    color: #000;
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 20px;
+}
+
+
+div.form {
+    padding: 10px;
+}
+
+.bold, .strong {
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+label, input, button, select, textarea, .btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover {
+    font-size: 10pt !important;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    display: inline-block;
+    height: 20px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    vertical-align: middle;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border linear .2s,box-shadow linear .2s;
+    -moz-transition: border linear .2s,box-shadow linear .2s;
+    -o-transition: border linear .2s,box-shadow linear .2s;
+    transition: border linear .2s,box-shadow linear .2s;
+}
+
+.clear {
+    clear: both;
+}
+
+.pull-right {
+    float: right;
+}
+
+a:hover, a:focus {
+    color: #005580;
+}
+
+a:hover, a:active {
+    outline: 0;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+.br-button.is-primary {
+    background: #1351b4;
+    border: 1px solid #1351b4;
+    border-radius: 100px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Rawline !;
+    font-size: 16px !important;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 8px 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.br-button.is-primary {
+    min-width: 144px;
+    width: auto;
+}
+
+.field {
+    min-width: 100%;
+    min-height: 30px;
+}
+
+.spaced {
+    margin-top: 15px;
+}
+
+.smallbtn {
+    padding: .0rem .0rem;
+}

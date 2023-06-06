@@ -12,6 +12,7 @@ class Dados:
 def index():
   return render_template('index.html')
 
+
 @app.route('/', methods=['POST'])
 def login():
     if request.method == 'POST':
@@ -21,14 +22,13 @@ def login():
       # Criar um objeto com os dados recebidos
       dados = Dados(login, senha)
 
-      # Estabelecer a conexão com o banco de dados MySQL
       conn = mysql.connector.connect(
         host='containers-us-west-189.railway.app',
+        database='railway', 
         user='root',
-        password='5Rg4COCO8b9meUM2gTbE',
-        database='railway'
+        password='5Rg4COCO8b9meUM2gTbE'
       )
-
+                                          
       # Criar um cursor para executar as operações no banco de dados
       cursor = conn.cursor()
 

